@@ -24,7 +24,10 @@
  
     ;; Web
     web-mode
-   
+
+    ;; Docker
+    dockerfile-mode
+    
     ;; Navigation
     helm
     avy
@@ -54,11 +57,14 @@
     buffer-move
     expand-region
     smart-mode-line
-    exec-path-from-shell))
+    exec-path-from-shell
+
+    ;; Theme
+    solarized-theme))
  
 (when (not package-archive-contents)
   (package-refresh-contents))
- 
+
 ;; Automaticaly install any missing packages
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -67,13 +73,9 @@
 ;; Load key bindings.
 (load (concat user-emacs-directory "keybinds.el"))
 
-;;----------------------------------------
-;; Proxy
-;;----------------------------------------
-(setq url-proxy-services '(("no_proxy" . "proxy.se.abb.com")
-                           ("http" . "proxy.se.abb.com:81")
-                           ("https" . "proxy.se.abb.com:81")))
- 
+;; Are we on a mac?
+(setq is-mac (equal system-type 'darwin))
+
 ;;----------------------------------------
 ;; expand region - form aware selection
 ;;----------------------------------------
@@ -202,6 +204,15 @@
 ;;helm cider
 (helm-cider-mode 1)
 
+(define-clojure-indent
+  (render 'defun)
+  (query 'defun)
+  (dom/div 'defun)
+  (dom/select 'defun)
+  (dom/table 'defun)
+  (dom/tr 'defun)
+  (dom/thead 'defun))
+
 ;;----------------
 ;; helm
 ;;----------------
@@ -241,8 +252,11 @@
 ;; (add-to-list 'default-frame-alist
 ;;              '(font . "DejaVu Sans Mono-14"))
 
-(add-to-list 'default-frame-alist
-             '(font . "Menlo 16"))
+(if is-mac
+    (add-to-list 'default-frame-alist
+		 '(font . "Menlo 16"))
+    (add-to-list 'default-frame-alist
+		 '(font . "DejaVu Sans Mono-14")))
 
 ;; theme
 (load-theme 'solarized-dark t)
@@ -254,7 +268,8 @@
 (global-hl-line-mode 1)
 
 ;; use line numbers globaly
-(global-display-line-numbers-mode)
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode))
 
 ;; turn of sound and blink warnings
 (setq ring-bell-function 'ignore)
@@ -289,8 +304,6 @@
 ;------------
 ; Misc stuff
 ;------------
-;; Are we on a mac?
-(setq is-mac (equal system-type 'darwin))
 
 ;; Setup environment variables from the user's shell.
 (when is-mac

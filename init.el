@@ -64,7 +64,7 @@
  
 (when (not package-archive-contents)
   (package-refresh-contents))
- 
+
 ;; Automaticaly install any missing packages
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -72,7 +72,10 @@
  
 ;; Load key bindings.
 (load (concat user-emacs-directory "keybinds.el"))
- 
+
+;; Are we on a mac?
+(setq is-mac (equal system-type 'darwin))
+
 ;;----------------------------------------
 ;; expand region - form aware selection
 ;;----------------------------------------
@@ -249,8 +252,11 @@
 ;; (add-to-list 'default-frame-alist
 ;;              '(font . "DejaVu Sans Mono-14"))
 
-(add-to-list 'default-frame-alist
-             '(font . "Menlo 16"))
+(if is-mac
+    (add-to-list 'default-frame-alist
+		 '(font . "Menlo 16"))
+    (add-to-list 'default-frame-alist
+		 '(font . "DejaVu Sans Mono-14")))
 
 ;; theme
 (load-theme 'solarized-dark t)
@@ -262,7 +268,8 @@
 (global-hl-line-mode 1)
 
 ;; use line numbers globaly
-(global-display-line-numbers-mode)
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode))
 
 ;; turn of sound and blink warnings
 (setq ring-bell-function 'ignore)
@@ -297,8 +304,6 @@
 ;------------
 ; Misc stuff
 ;------------
-;; Are we on a mac?
-(setq is-mac (equal system-type 'darwin))
 
 ;; Setup environment variables from the user's shell.
 (when is-mac

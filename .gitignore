@@ -1,6 +1,9 @@
 auto-save-list/
 elpa/
-themes/
+backups/
+places
 projectile-bookmarks.eld
-ac-comphist.dat
-backup
+eshell/
+url/
+image-dired/
+*~

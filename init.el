@@ -24,7 +24,10 @@
  
     ;; Web
     web-mode
-   
+
+    ;; Docker
+    dockerfile-mode
+    
     ;; Navigation
     helm
     avy
@@ -54,7 +57,10 @@
     buffer-move
     expand-region
     smart-mode-line
-    exec-path-from-shell))
+    exec-path-from-shell
+
+    ;; Theme
+    solarized-theme))
  
 (when (not package-archive-contents)
   (package-refresh-contents))
@@ -66,13 +72,6 @@
  
 ;; Load key bindings.
 (load (concat user-emacs-directory "keybinds.el"))
-
-;;----------------------------------------
-;; Proxy
-;;----------------------------------------
-(setq url-proxy-services '(("no_proxy" . "proxy.se.abb.com")
-                           ("http" . "proxy.se.abb.com:81")
-                           ("https" . "proxy.se.abb.com:81")))
  
 ;;----------------------------------------
 ;; expand region - form aware selection
@@ -201,6 +200,15 @@
 
 ;;helm cider
 (helm-cider-mode 1)
+
+(define-clojure-indent
+  (render 'defun)
+  (query 'defun)
+  (dom/div 'defun)
+  (dom/select 'defun)
+  (dom/table 'defun)
+  (dom/tr 'defun)
+  (dom/thead 'defun))
 
 ;;----------------
 ;; helm

@@ -73,6 +73,13 @@
 ;; Load key bindings.
 (load (concat user-emacs-directory "keybinds.el"))
 
+;;----------------------------------------
+;; Proxy
+;;----------------------------------------
+
+;; Load proxy settings - note, file is local and not in VC
+(load (concat user-emacs-directory "proxy.el"))
+
 ;; Are we on a mac?
 (setq is-mac (equal system-type 'darwin))
 

@@ -2,6 +2,9 @@
 
 ** Emacs
 
+*** Basics
+    - Check the values of variables using =C-h v=
+
 *** Finding
     - =M-x occur=
     - =M-x imenu=

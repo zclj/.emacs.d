@@ -1,29 +1,37 @@
 
 # Table of Contents
 
-1.  [My Emacs config and documentation](#org1b64e75)
-    1.  [Emacs](#orgc86cd16)
-        1.  [Finding](#orge49daa5)
-        2.  [Jump back](#org72e90e3)
-        3.  [Folding](#org1a1a942)
-    2.  [Org-mode](#org322cee5)
-        1.  [Export](#org47fdd74)
-    3.  [Paredit](#orge647745)
-    4.  [Magit](#org4a31f2f)
-    5.  [Resources](#org4955584)
+1.  [My Emacs config and documentation](#org4d51cf1)
+    1.  [Emacs](#orge17855c)
+        1.  [Basics](#org0fadf7d)
+        2.  [Finding](#org45df97f)
+        3.  [Jump back](#orgaf22b06)
+        4.  [Folding](#orgfcf2f84)
+    2.  [Org-mode](#org33e7873)
+        1.  [Export](#orgfd58435)
+    3.  [Paredit](#org723a31c)
+    4.  [Magit](#org0d7d317)
+    5.  [Resources](#org05e80bd)
 
 
-<a id="org1b64e75"></a>
+<a id="org4d51cf1"></a>
 
 # My Emacs config and documentation
 
 
-<a id="orgc86cd16"></a>
+<a id="orge17855c"></a>
 
 ## Emacs
 
 
-<a id="orge49daa5"></a>
+<a id="org0fadf7d"></a>
+
+### Basics
+
+-   Check the values of variables using `C-h v`
+
+
+<a id="org45df97f"></a>
 
 ### Finding
 
@@ -31,7 +39,7 @@
 -   `M-x imenu`
 
 
-<a id="org72e90e3"></a>
+<a id="orgaf22b06"></a>
 
 ### Jump back
 
@@ -39,19 +47,19 @@
 -   `C-u C-Space` (buffer only)
 
 
-<a id="org1a1a942"></a>
+<a id="orgfcf2f84"></a>
 
 ### Folding
 
 -   Hideshow
 
 
-<a id="org322cee5"></a>
+<a id="org33e7873"></a>
 
 ## Org-mode
 
 
-<a id="org47fdd74"></a>
+<a id="orgfd58435"></a>
 
 ### Export
 
@@ -62,19 +70,19 @@
     -   For inline code, enclose with = or ~
 
 
-<a id="orge647745"></a>
+<a id="org723a31c"></a>
 
 ## Paredit
 
 -   <http://danmidwood.com/content/2014/11/21/animated-paredit.html>
 
 
-<a id="org4a31f2f"></a>
+<a id="org0d7d317"></a>
 
 ## Magit
 
 
-<a id="org4955584"></a>
+<a id="org05e80bd"></a>
 
 ## Resources
 

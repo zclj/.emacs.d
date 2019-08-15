@@ -1,0 +1,34 @@
+* My Emacs config and documentation
+
+** Emacs
+
+*** Finding
+    - =M-x occur=
+    - =M-x imenu=
+
+*** Jump back
+    - ~C-x C-Space~ (accross buffers)
+    - ~C-u C-Space~ (buffer only)
+  
+*** Folding
+    - Hideshow
+
+** Org-mode
+
+*** Export
+
+**** Markdown
+     - =M-x org-md-export-to-markdown=
+       - ref: [[https://orgmode.org/manual/Markdown-export.html][Markdown export]]
+     - For inline code, enclose with = or ~
+
+** Paredit
+    - http://danmidwood.com/content/2014/11/21/animated-paredit.html
+
+** Magit
+
+** Resources
+    - https://github.com/jaypei/emacs-neotree
+    - http://ergoemacs.org/emacs/effective_emacs.html
+    - http://pragmaticemacs.com/emacs/join-line-to-previous-line/
+    - http://cachestocaches.com/2017/3/complete-guide-email-emacs-using-mu-and-/

@@ -6,7 +6,7 @@
     - Check the values of variables using =C-h v=
 
 *** Finding
-    - =M-x occur=
+    - =M-x occur= Show definitions
     - =M-x imenu=
 
 *** Jump back
@@ -16,7 +16,21 @@
 *** Folding
     - Hideshow
 
+*** Packages
+    - =M-x list-packages=
+      - Use U to mark all upgradeable packages and x to perform upgrades
+
 ** Org-mode
+
+***  [[https://orgmode.org/org.html#Structure-Editing][Structure Editing]]
+    - =M-UP= (org-move-subtree-up) Move subtree up
+    - =M-DOWN= (org-move-subtree-down) Move subtree down
+
+*** Links
+    - [[https://orgmode.org/manual/Handling-links.html][Handling links]]
+    - =C-c l= (org-store-link) Store a link to the current location.
+    - =C-c C-l= (org-insert-link) When the cursor is on an existing link, link will be edited.
+    - =C-c C-o= (org-open-at-point)
 
 *** Export
 
@@ -34,4 +48,5 @@
     - https://github.com/jaypei/emacs-neotree
     - http://ergoemacs.org/emacs/effective_emacs.html
     - http://pragmaticemacs.com/emacs/join-line-to-previous-line/
+    - https://github.com/bbatsov/super-save
     - http://cachestocaches.com/2017/3/complete-guide-email-emacs-using-mu-and-/

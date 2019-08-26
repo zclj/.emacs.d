@@ -1,40 +1,40 @@
 
 # Table of Contents
 
-1.  [My Emacs config and documentation](#orgd660d4e)
-    1.  [Emacs](#org9ed5ecc)
-        1.  [Basics](#orgd80ccea)
-        2.  [Finding](#org0dd4dd4)
-        3.  [Jump back](#orgd47efdc)
-        4.  [Folding](#orgfc9c067)
-        5.  [Packages](#orga06706d)
-    2.  [Org-mode](#org9d50fcd)
-        1.  [Structure Editing](#orgf23643b)
-        2.  [Links](#orgf0fdc32)
-        3.  [Export](#org9535b7f)
-    3.  [Paredit](#orgc2a5e38)
-    4.  [Magit](#org0d47b6b)
-    5.  [Resources](#orge4df01b)
+1.  [My Emacs config and documentation](#orge8668d4)
+    1.  [Emacs](#orgf41c6fb)
+        1.  [Basics](#org8c42ff9)
+        2.  [Finding](#org4428d2b)
+        3.  [Jump back](#org7259f44)
+        4.  [Folding](#org388fb53)
+        5.  [Packages](#org2f98a04)
+    2.  [Org-mode](#orgbefebc3)
+        1.  [Structure Editing](#org8b33741)
+        2.  [Links](#org997b3a1)
+        3.  [Export](#org3ca6e90)
+    3.  [Paredit](#org17b9535)
+    4.  [Magit](#org730abaa)
+    5.  [Resources](#orgd5a7420)
 
 
-<a id="orgd660d4e"></a>
+<a id="orge8668d4"></a>
 
 # My Emacs config and documentation
 
 
-<a id="org9ed5ecc"></a>
+<a id="orgf41c6fb"></a>
 
 ## Emacs
 
 
-<a id="orgd80ccea"></a>
+<a id="org8c42ff9"></a>
 
 ### Basics
 
 -   Check the values of variables using `C-h v`
 
 
-<a id="org0dd4dd4"></a>
+<a id="org4428d2b"></a>
 
 ### Finding
 
@@ -42,7 +42,7 @@
 -   `M-x imenu`
 
 
-<a id="orgd47efdc"></a>
+<a id="org7259f44"></a>
 
 ### Jump back
 
@@ -50,14 +50,14 @@
 -   `C-u C-Space` (buffer only)
 
 
-<a id="orgfc9c067"></a>
+<a id="org388fb53"></a>
 
 ### Folding
 
 -   Hideshow
 
 
-<a id="orga06706d"></a>
+<a id="org2f98a04"></a>
 
 ### Packages
 
@@ -65,12 +65,12 @@
     -   Use U to mark all upgradeable packages and x to perform upgrades
 
 
-<a id="org9d50fcd"></a>
+<a id="orgbefebc3"></a>
 
 ## Org-mode
 
 
-<a id="orgf23643b"></a>
+<a id="org8b33741"></a>
 
 ### [Structure Editing](https://orgmode.org/org.html#Structure-Editing)
 
@@ -78,7 +78,7 @@
 -   `M-DOWN` (org-move-subtree-down) Move subtree down
 
 
-<a id="orgf0fdc32"></a>
+<a id="org997b3a1"></a>
 
 ### Links
 
@@ -88,7 +88,7 @@
 -   `C-c C-o` (org-open-at-point)
 
 
-<a id="org9535b7f"></a>
+<a id="org3ca6e90"></a>
 
 ### Export
 
@@ -99,19 +99,19 @@
     -   For inline code, enclose with = or ~
 
 
-<a id="orgc2a5e38"></a>
+<a id="org17b9535"></a>
 
 ## Paredit
 
 -   <http://danmidwood.com/content/2014/11/21/animated-paredit.html>
 
 
-<a id="org0d47b6b"></a>
+<a id="org730abaa"></a>
 
 ## Magit
 
 
-<a id="orge4df01b"></a>
+<a id="orgd5a7420"></a>
 
 ## Resources
 

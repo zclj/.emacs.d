@@ -124,7 +124,7 @@
  '(markdown-command "/usr/local/bin/pandoc")
  '(package-selected-packages
    (quote
-    (docker-compose-mode solarized-theme web-mode zenburn-theme which-key rainbow-delimiters move-text magit helm-projectile helm-cider expand-region company-flx clojure-snippets clojure-cheatsheet clj-refactor cider-eval-sexp-fu ace-window))))
+    (php-mode docker-compose-mode solarized-theme web-mode zenburn-theme which-key rainbow-delimiters move-text magit helm-projectile helm-cider expand-region company-flx clojure-snippets clojure-cheatsheet clj-refactor cider-eval-sexp-fu ace-window))))
 
 ;;----------------------------------------
 ;; Docs

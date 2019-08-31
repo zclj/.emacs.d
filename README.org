@@ -1,38 +1,70 @@
 * My Emacs config and documentation
+  :PROPERTIES:
+  :CUSTOM_ID: doc
+  :END:
 
 ** Emacs
-
+:PROPERTIES:
+:CUSTOM_ID: emacs
+:END:
 *** Basics
+    :PROPERTIES:
+    :CUSTOM_ID: basics
+    :END:
     - Check the values of variables using =C-h v=
 
 *** Finding
+    :PROPERTIES:
+    :CUSTOM_ID: finding
+    :END:
     - =M-x occur= Show definitions
     - =M-x imenu=
 
-*** Jump back
+*** Jump
+    :PROPERTIES:
+    :CUSTOM_ID: jump
+    :END:
     - ~C-x C-Space~ (accross buffers)
     - ~C-u C-Space~ (buffer only)
   
 *** Folding
+    :PROPERTIES:
+    :CUSTOM_ID: folding
+    :END:
     - Hideshow
 
 *** Packages
+    :PROPERTIES:
+    :CUSTOM_ID: packages
+    :END:
     - =M-x list-packages=
       - Use U to mark all upgradeable packages and x to perform upgrades
 
 ** Org-mode
+   :PROPERTIES:
+   :CUSTOM_ID: org-mode
+   :END:
 
-***  [[https://orgmode.org/org.html#Structure-Editing][Structure Editing]]
+*** [[https://orgmode.org/org.html#Structure-Editing][Structure Editing]]
+    :PROPERTIES:
+    :CUSTOM_ID: structure-editing
+    :END:
     - =M-UP= (org-move-subtree-up) Move subtree up
     - =M-DOWN= (org-move-subtree-down) Move subtree down
 
 *** Links
+    :PROPERTIES:
+    :CUSTOM_ID: links
+    :END:
     - [[https://orgmode.org/manual/Handling-links.html][Handling links]]
     - =C-c l= (org-store-link) Store a link to the current location.
     - =C-c C-l= (org-insert-link) When the cursor is on an existing link, link will be edited.
     - =C-c C-o= (org-open-at-point)
 
 *** Export
+    :PROPERTIES:
+    :CUSTOM_ID: export
+    :END:
 
 **** Markdown
      - =M-x org-md-export-to-markdown=
@@ -40,11 +72,20 @@
      - For inline code, enclose with = or ~
 
 ** Paredit
+   :PROPERTIES:
+   :CUSTOM_ID: paredit
+   :END:
     - http://danmidwood.com/content/2014/11/21/animated-paredit.html
 
 ** Magit
+   :PROPERTIES:
+   :CUSTOM_ID: magit
+   :END:
 
 ** Resources
+   :PROPERTIES:
+   :CUSTOM_ID: resources
+   :END:
     - https://github.com/jaypei/emacs-neotree
     - http://ergoemacs.org/emacs/effective_emacs.html
     - http://pragmaticemacs.com/emacs/join-line-to-previous-line/

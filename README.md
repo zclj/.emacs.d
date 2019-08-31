@@ -1,40 +1,40 @@
 
 # Table of Contents
 
-1.  [My Emacs config and documentation](#orge8668d4)
-    1.  [Emacs](#orgf41c6fb)
-        1.  [Basics](#org8c42ff9)
-        2.  [Finding](#org4428d2b)
-        3.  [Jump back](#org7259f44)
-        4.  [Folding](#org388fb53)
-        5.  [Packages](#org2f98a04)
-    2.  [Org-mode](#orgbefebc3)
-        1.  [Structure Editing](#org8b33741)
-        2.  [Links](#org997b3a1)
-        3.  [Export](#org3ca6e90)
-    3.  [Paredit](#org17b9535)
-    4.  [Magit](#org730abaa)
-    5.  [Resources](#orgd5a7420)
+1.  [My Emacs config and documentation](#doc)
+    1.  [Emacs](#emacs)
+        1.  [Basics](#basics)
+        2.  [Finding](#finding)
+        3.  [Jump](#jump)
+        4.  [Folding](#folding)
+        5.  [Packages](#packages)
+    2.  [Org-mode](#org-mode)
+        1.  [Structure Editing](#structure-editing)
+        2.  [Links](#links)
+        3.  [Export](#export)
+    3.  [Paredit](#paredit)
+    4.  [Magit](#magit)
+    5.  [Resources](#resources)
 
 
-<a id="orge8668d4"></a>
+<a id="doc"></a>
 
 # My Emacs config and documentation
 
 
-<a id="orgf41c6fb"></a>
+<a id="emacs"></a>
 
 ## Emacs
 
 
-<a id="org8c42ff9"></a>
+<a id="basics"></a>
 
 ### Basics
 
 -   Check the values of variables using `C-h v`
 
 
-<a id="org4428d2b"></a>
+<a id="finding"></a>
 
 ### Finding
 
@@ -42,22 +42,22 @@
 -   `M-x imenu`
 
 
-<a id="org7259f44"></a>
+<a id="jump"></a>
 
-### Jump back
+### Jump
 
 -   `C-x C-Space` (accross buffers)
 -   `C-u C-Space` (buffer only)
 
 
-<a id="org388fb53"></a>
+<a id="folding"></a>
 
 ### Folding
 
 -   Hideshow
 
 
-<a id="org2f98a04"></a>
+<a id="packages"></a>
 
 ### Packages
 
@@ -65,12 +65,12 @@
     -   Use U to mark all upgradeable packages and x to perform upgrades
 
 
-<a id="orgbefebc3"></a>
+<a id="org-mode"></a>
 
 ## Org-mode
 
 
-<a id="org8b33741"></a>
+<a id="structure-editing"></a>
 
 ### [Structure Editing](https://orgmode.org/org.html#Structure-Editing)
 
@@ -78,7 +78,7 @@
 -   `M-DOWN` (org-move-subtree-down) Move subtree down
 
 
-<a id="org997b3a1"></a>
+<a id="links"></a>
 
 ### Links
 
@@ -88,7 +88,7 @@
 -   `C-c C-o` (org-open-at-point)
 
 
-<a id="org3ca6e90"></a>
+<a id="export"></a>
 
 ### Export
 
@@ -99,19 +99,19 @@
     -   For inline code, enclose with = or ~
 
 
-<a id="org17b9535"></a>
+<a id="paredit"></a>
 
 ## Paredit
 
 -   <http://danmidwood.com/content/2014/11/21/animated-paredit.html>
 
 
-<a id="org730abaa"></a>
+<a id="magit"></a>
 
 ## Magit
 
 
-<a id="orgd5a7420"></a>
+<a id="resources"></a>
 
 ## Resources
 

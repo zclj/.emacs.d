@@ -50,6 +50,9 @@
 
     ;; Document formats
     markdown-mode
+
+    ;; Modeling
+    plantuml-mode
     
     ;; Misc
     magit
@@ -83,6 +86,16 @@
 
 ;; Are we on a mac?
 (setq is-mac (equal system-type 'darwin))
+
+;;----------------------------------------
+;; PlantUML
+;;----------------------------------------
+;; Enable plantuml-mode for PlantUML files
+(add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode))
+(add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
+
+;; path to plantuml .jar
+(setq plantuml-jar-path "~/bin/plantuml.jar")
 
 ;;----------------------------------------
 ;; expand region - form aware selection
@@ -363,7 +376,16 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 (setq org-log-done t)
- 
+
+;; active Org-babel languages
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '(;; other Babel languages
+   (plantuml . t)))
+
+;; org - plantuml
+(setq org-plantuml-jar-path (expand-file-name "~/bin/plantuml.jar"))
+
 ;;---------------------------
 ;; Global Clipboard support
 ;;---------------------------

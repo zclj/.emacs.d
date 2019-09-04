@@ -97,6 +97,8 @@
 ;; path to plantuml .jar
 (setq plantuml-jar-path "~/bin/plantuml.jar")
 
+(setq plantuml-exec-mode 'jar)
+
 ;;----------------------------------------
 ;; expand region - form aware selection
 ;;----------------------------------------

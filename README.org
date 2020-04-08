@@ -49,8 +49,20 @@
     :PROPERTIES:
     :CUSTOM_ID: structure-editing
     :END:
+    - =M-RET= (org-meta-return) Insert a new heading, item or row
+    - =C-RET= (org-insert-heading-respect-content) Insert a new heading at the end of the current subtree
     - =M-UP= (org-move-subtree-up) Move subtree up
     - =M-DOWN= (org-move-subtree-down) Move subtree down
+    - =M-S-LEFT/RIGHT= (org-promote/demote-subtree) Promote/demote the current subtree
+    - =C-c *= (org-toggle-heading) Turn a normal line or plain list item into a headline
+
+*** Plain Lists
+    :PROPERTIES:
+    :CUSTOM_ID: plain-lists
+    :END:
+    - =M-S-RET= Insert a new item with checkbox
+    - =S-UP/DOWN= Jump to the privous/next item in the current list
+    - =C-c C-c= Toggle checkbox
 
 *** Links
     :PROPERTIES:

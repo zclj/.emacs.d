@@ -10,8 +10,9 @@
         5.  [Packages](#packages)
     2.  [Org-mode](#org-mode)
         1.  [Structure Editing](#structure-editing)
-        2.  [Links](#links)
-        3.  [Export](#export)
+        2.  [Plain Lists](#plain-lists)
+        3.  [Links](#links)
+        4.  [Export](#export)
     3.  [Paredit](#paredit)
     4.  [Magit](#magit)
     5.  [Resources](#resources)
@@ -74,8 +75,21 @@
 
 ### [Structure Editing](https://orgmode.org/org.html#Structure-Editing)
 
+-   `M-RET` (org-meta-return) Insert a new heading, item or row
+-   `C-RET` (org-insert-heading-respect-content) Insert a new heading at the end of the current subtree
 -   `M-UP` (org-move-subtree-up) Move subtree up
 -   `M-DOWN` (org-move-subtree-down) Move subtree down
+-   `M-S-LEFT/RIGHT` (org-promote/demote-subtree) Promote/demote the current subtree
+-   `C-c *` (org-toggle-heading) Turn a normal line or plain list item into a headline
+
+
+<a id="plain-lists"></a>
+
+### Plain Lists
+
+-   `M-S-RET` Insert a new item with checkbox
+-   `S-UP/DOWN` Jump to the privous/next item in the current list
+-   `C-c C-c` Toggle checkbox
 
 
 <a id="links"></a>

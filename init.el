@@ -98,6 +98,7 @@
 (setq plantuml-jar-path "~/bin/plantuml.jar")
 
 (setq plantuml-exec-mode 'jar)
+(setq plantuml-output-type 'png)
 
 ;;----------------------------------------
 ;; expand region - form aware selection
@@ -383,7 +384,8 @@
 (org-babel-do-load-languages
  'org-babel-load-languages
  '(;; other Babel languages
-   (plantuml . t)))
+   (plantuml . t)
+   (dot . t)))
 
 ;; org - plantuml
 (setq org-plantuml-jar-path (expand-file-name "~/bin/plantuml.jar"))

@@ -63,7 +63,8 @@
     exec-path-from-shell
 
     ;; Theme
-    solarized-theme))
+    solarized-theme
+    dracula-theme))
  
 (when (not package-archive-contents)
   (package-refresh-contents))
@@ -282,7 +283,8 @@
 		 '(font . "DejaVu Sans Mono-14")))
 
 ;; theme
-(load-theme 'solarized-dark t)
+;;(load-theme 'solarized-dark t)
+(load-theme 'dracula t)
 
 ;; Highlight paren pairs
 (show-paren-mode 1)

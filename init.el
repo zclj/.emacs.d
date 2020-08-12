@@ -57,6 +57,9 @@
 
     ;; Modeling
     plantuml-mode
+
+    ;; statistics
+    ess
     
     ;; Misc
     magit

@@ -21,6 +21,10 @@
     ;;clojure-cheatsheet
     helm-cider
     clojure-snippets
+
+    ;; Linting
+    flycheck
+    flycheck-clj-kondo
  
     ;; Web
     web-mode
@@ -210,8 +214,11 @@
 (require 'clj-refactor)
 ;;(require 'cider-eval-sexp-fu)
 
+(require 'flycheck-clj-kondo)
+
 (defun clojure-mode-hook ()
   (paredit-mode)
+  (flycheck-mode)
   (clj-refactor-mode 1)
   (yas-minor-mode 1) ; for adding require/use/import statements
   ;; This choice of keybinding leaves cider-macroexpand-1 unbound

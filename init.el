@@ -22,6 +22,9 @@
     helm-cider
     clojure-snippets
 
+    ;; Haskell
+    haskell-mode
+    
     ;; Linting
     flycheck
     flycheck-clj-kondo
@@ -267,7 +270,20 @@
 ;; helm projectile
 (require 'helm-projectile)
 (helm-projectile-on)
- 
+
+;---------------
+; Haskell
+;----------------
+(require 'haskell-interactive-mode)
+(require 'haskell-process)
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+
+(custom-set-variables
+  '(haskell-process-suggest-remove-import-lines t)
+  '(haskell-process-auto-import-loaded-modules t)
+  '(haskell-process-log t))
+
+
 ;---------------
 ; auto-complete
 ;----------------

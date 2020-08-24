@@ -87,6 +87,10 @@
 ;; Load key bindings.
 (load (concat user-emacs-directory "keybinds.el"))
 
+;; Load custom
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(load custom-file)
+
 ;;----------------------------------------
 ;; Proxy
 ;;----------------------------------------
@@ -139,20 +143,6 @@
   "Major mode for editing GitHub Flavored Markdown files" t)
 
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "52d43c63ce3d612053fc9f98a13ecd60fbe116095a41c1b90c76556519044f19" default)))
- '(initial-buffer-choice t)
- '(markdown-command "/usr/local/bin/pandoc")
- '(package-selected-packages
-   (quote
-    (php-mode docker-compose-mode solarized-theme web-mode zenburn-theme which-key rainbow-delimiters move-text magit helm-projectile helm-cider expand-region company-flx clojure-snippets clojure-cheatsheet clj-refactor cider-eval-sexp-fu ace-window))))
 
 ;;----------------------------------------
 ;; Docs
@@ -426,9 +416,3 @@
 (global-set-key "\C-y" 'clipboard-yank) ;;\C-y
  
 
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

@@ -71,6 +71,7 @@
     expand-region
     smart-mode-line
     exec-path-from-shell
+    adoc-mode
 
     ;; Theme
     solarized-theme
@@ -120,6 +121,14 @@
 
 (setq plantuml-exec-mode 'jar)
 (setq plantuml-output-type 'png)
+
+;;----------------------------------------
+;; AsciiDoc
+;;----------------------------------------
+(require 'adoc-mode)
+(add-to-list 'auto-mode-alist '("\\.adoc\\'" . adoc-mode))
+(add-hook 'adoc-mode-hook (lambda() (buffer-face-mode t)))
+
 
 ;;----------------------------------------
 ;; expand region - form aware selection

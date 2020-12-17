@@ -91,6 +91,12 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
 
+;; Seems Emacs 27.1 do not open files in ~/ by default (in MacOS anyway)
+(when (string= default-directory "/")
+  (setq default-directory "~/")
+  (with-current-buffer "*Messages*"
+    (setq default-directory "~/")))
+
 ;;----------------------------------------
 ;; Proxy
 ;;----------------------------------------

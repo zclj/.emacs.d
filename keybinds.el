@@ -45,9 +45,24 @@
 ;; Crux
 (global-set-key [remap move-beginning-of-line] #'crux-move-beginning-of-line)
 (global-set-key [(shift return)] #'crux-smart-open-line)
-(global-set-key (kbd "s-r") #'crux-recentf-find-file)
 (global-set-key (kbd "C-c k") #'crux-kill-other-buffers)
 (global-set-key (kbd "C-c d") #'crux-duplicate-current-line-or-region)
 (global-set-key (kbd "C-c M-d") #'crux-duplicate-and-comment-current-line-or-region)
 (global-set-key (kbd "C-c n") #'crux-cleanup-buffer-or-region)
 (global-set-key (kbd "s-k") #'crux-kill-whole-line)
+
+;; Start eshell or switch to it if it's active.
+(global-set-key (kbd "C-x m") 'eshell)
+
+;; Start a new eshell even if one is active.
+(global-set-key (kbd "C-x M") (lambda () (interactive) (eshell t)))
+
+;;----------------------------------------
+;; avy
+;;----------------------------------------
+(global-set-key (kbd "C-c v") 'avy-goto-word-or-subword-1)
+
+;;----------------------------------------
+;; Magit
+;;----------------------------------------
+(global-set-key (kbd "C-x g") 'magit-status)

@@ -22,6 +22,9 @@
     helm-cider
     clojure-snippets
 
+    ;; Haskell
+    haskell-mode
+    
     ;; Linting
     flycheck
     flycheck-clj-kondo
@@ -68,6 +71,7 @@
     expand-region
     smart-mode-line
     exec-path-from-shell
+    adoc-mode
 
     ;; Theme
     solarized-theme
@@ -83,6 +87,16 @@
  
 ;; Load key bindings.
 (load (concat user-emacs-directory "keybinds.el"))
+
+;; Load custom
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(load custom-file)
+
+;; Seems Emacs 27.1 do not open files in ~/ by default (in MacOS anyway)
+(when (string= default-directory "/")
+  (setq default-directory "~/")
+  (with-current-buffer "*Messages*"
+    (setq default-directory "~/")))
 
 ;;----------------------------------------
 ;; Proxy
@@ -107,6 +121,14 @@
 
 (setq plantuml-exec-mode 'jar)
 (setq plantuml-output-type 'png)
+
+;;----------------------------------------
+;; AsciiDoc
+;;----------------------------------------
+(require 'adoc-mode)
+(add-to-list 'auto-mode-alist '("\\.adoc\\'" . adoc-mode))
+(add-hook 'adoc-mode-hook (lambda() (buffer-face-mode t)))
+
 
 ;;----------------------------------------
 ;; expand region - form aware selection
@@ -136,20 +158,6 @@
   "Major mode for editing GitHub Flavored Markdown files" t)
 
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "52d43c63ce3d612053fc9f98a13ecd60fbe116095a41c1b90c76556519044f19" default)))
- '(initial-buffer-choice t)
- '(markdown-command "/usr/local/bin/pandoc")
- '(package-selected-packages
-   (quote
-    (php-mode docker-compose-mode solarized-theme web-mode zenburn-theme which-key rainbow-delimiters move-text magit helm-projectile helm-cider expand-region company-flx clojure-snippets clojure-cheatsheet clj-refactor cider-eval-sexp-fu ace-window))))
 
 ;;----------------------------------------
 ;; Docs
@@ -267,7 +275,20 @@
 ;; helm projectile
 (require 'helm-projectile)
 (helm-projectile-on)
- 
+
+;---------------
+; Haskell
+;----------------
+(require 'haskell-interactive-mode)
+(require 'haskell-process)
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+
+(custom-set-variables
+  '(haskell-process-suggest-remove-import-lines t)
+  '(haskell-process-auto-import-loaded-modules t)
+  '(haskell-process-log t))
+
+
 ;---------------
 ; auto-complete
 ;----------------
@@ -410,9 +431,3 @@
 (global-set-key "\C-y" 'clipboard-yank) ;;\C-y
  
 
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

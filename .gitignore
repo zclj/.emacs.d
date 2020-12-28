@@ -8,3 +8,6 @@ url/
 image-dired/
 *~
 proxy.el
+custom.el
+.DS_Store
+transient/

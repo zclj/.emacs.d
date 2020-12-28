@@ -276,6 +276,8 @@
 ;; theme
 ;;(load-theme 'solarized-dark t)
 (load-theme 'dracula t)
+;; Use less pink and bold on the mode-line and minibuffer (default nil)
+(setq dracula-alternate-mode-line-and-minibuffer t)
 
 ;; Highlight paren pairs
 (show-paren-mode 1)

@@ -73,7 +73,10 @@
     adoc-mode
     crux
     guru-mode
-
+    key-chord
+    undo-tree
+    browse-kill-ring
+    
     ;; Theme
     solarized-theme
     dracula-theme))
@@ -407,3 +410,22 @@
 (global-diff-hl-mode +1)
 (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
 (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+
+;; undo-tree
+(require 'undo-tree)
+(global-undo-tree-mode)
+
+;;---------------------------
+;; key-chords
+;;---------------------------
+(require 'key-chord)
+
+(key-chord-define-global "jj" 'avy-goto-word-1)
+(key-chord-define-global "jl" 'avy-goto-line)
+(key-chord-define-global "jk" 'avy-goto-char)
+(key-chord-define-global "JJ" 'crux-switch-to-previous-buffer)
+(key-chord-define-global "uu" 'undo-tree-visualize)
+(key-chord-define-global "xx" 'execute-extended-command)
+(key-chord-define-global "yy" 'browse-kill-ring)
+
+(key-chord-mode +1)

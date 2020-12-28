@@ -72,6 +72,7 @@
     smart-mode-line
     exec-path-from-shell
     adoc-mode
+    crux
 
     ;; Theme
     solarized-theme

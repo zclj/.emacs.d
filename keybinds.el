@@ -5,19 +5,20 @@
   (global-set-key [kp-delete] 'delete-char) ;; sets fn-delete to be right-delete
   )
 
-(global-set-key [f12] (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
- 
+(global-set-key [f12]
+		(lambda () (interactive) (find-file "~/.emacs.d/init.el")))
+
 (require 'projectile)
- 
+
 (defun find-project-file (file)
   (find-file (expand-file-name file (projectile-project-root))))
- 
+
 (global-set-key [f9]
-                (lambda () (interactive)
-                  (find-project-file "dev/user.clj")))
- 
+		(lambda () (interactive)
+		  (find-project-file "dev/user.clj")))
+
 (global-set-key [f10]
-                (lambda () (interactive)
+		(lambda () (interactive)
 		  (find-project-file "project.clj")))
 
 ;; using shift+arrow to move between windows
@@ -40,3 +41,13 @@
 
 ;; Revert without any fuss
 (global-set-key (kbd "M-<escape>") (lambda (revert-buffer t t)))
+
+;; Crux
+(global-set-key [remap move-beginning-of-line] #'crux-move-beginning-of-line)
+(global-set-key [(shift return)] #'crux-smart-open-line)
+(global-set-key (kbd "s-r") #'crux-recentf-find-file)
+(global-set-key (kbd "C-c k") #'crux-kill-other-buffers)
+(global-set-key (kbd "C-c d") #'crux-duplicate-current-line-or-region)
+(global-set-key (kbd "C-c M-d") #'crux-duplicate-and-comment-current-line-or-region)
+(global-set-key (kbd "C-c n") #'crux-cleanup-buffer-or-region)
+(global-set-key (kbd "s-k") #'crux-kill-whole-line)

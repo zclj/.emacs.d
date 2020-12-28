@@ -68,6 +68,7 @@
     buffer-move
     expand-region
     smart-mode-line
+    smart-mode-line-powerline-theme
     exec-path-from-shell
     adoc-mode
     crux
@@ -302,6 +303,7 @@
 
 ;; smart mode line
 (sml/setup)
+(sml/apply-theme 'powerline)
 
 
 ;; hideshow blocks

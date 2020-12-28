@@ -73,6 +73,7 @@
     exec-path-from-shell
     adoc-mode
     crux
+    guru-mode
 
     ;; Theme
     solarized-theme
@@ -431,4 +432,7 @@
 (global-set-key "\M-w" 'clipboard-kill-ring-save) ;; \M-w
 (global-set-key "\C-y" 'clipboard-yank) ;;\C-y
  
-
+;;---------------------------
+;; Guru mode
+;;---------------------------
+(guru-global-mode +1)

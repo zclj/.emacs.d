@@ -56,6 +56,9 @@
 ### Folding
 
 -   Hideshow
+    -   `C-.` (hs-toggle-hiding) toggle hiding
+    -   `C-,` (hs-hide-all) hide all in the buffer
+    -   `C-x C-,` (hs-show-all) show all in the buffer
 
 
 <a id="packages"></a>

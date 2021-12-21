@@ -272,6 +272,9 @@
 
 (blink-cursor-mode -1)
 
+;; don't want startup message
+(setq inhibit-startup-message t)
+
 ;; nice scrolling
 (setq scroll-margin 0
       scroll-conservatively 100000

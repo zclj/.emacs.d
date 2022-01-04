@@ -208,6 +208,8 @@
 (helm-cider-mode 1)
 
 (define-clojure-indent
+  (defspec 'defun)
+  (for-all 'defun)
   (render 'defun)
   (query 'defun)
   (dom/div 'defun)

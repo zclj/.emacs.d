@@ -77,6 +77,7 @@
     undo-tree
     browse-kill-ring
     anzu
+    string-inflection
     
     ;; Theme
     solarized-theme

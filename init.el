@@ -13,13 +13,13 @@
     ;; Clojure
     cider
     clj-refactor
-    ;;clojure-cheatsheet
     helm-cider
     clojure-snippets
 
-    ;; Haskell
-    haskell-mode
-
+    ;; Rust
+    rust-mode
+    rustic
+    
     ;; Linting
     flycheck
     flycheck-clj-kondo
@@ -30,6 +30,9 @@
     ;; Docker
     dockerfile-mode
 
+    ;; yaml
+    yaml-mode
+    
     ;; Navigation
     helm
     avy
@@ -78,6 +81,11 @@
     browse-kill-ring
     anzu
     string-inflection
+
+    use-package
+
+    ;; LSP
+    eglot
     
     ;; Theme
     solarized-theme
@@ -131,9 +139,10 @@
 ;;----------------------------------------
 ;; AsciiDoc
 ;;----------------------------------------
-(require 'adoc-mode)
-(add-to-list 'auto-mode-alist '("\\.adoc\\'" . adoc-mode))
-(add-hook 'adoc-mode-hook (lambda() (buffer-face-mode t)))
+;; Disable for now, works like crap
+;; (require 'adoc-mode)
+;; (add-to-list 'auto-mode-alist '("\\.adoc\\'" . adoc-mode))
+;; (add-hook 'adoc-mode-hook (lambda() (buffer-face-mode t)))
 
 ;;----------------------------------------
 ;; expand region - form aware selection
@@ -222,7 +231,6 @@
 ;;----------------
 ;; helm
 ;;----------------
-(require 'helm-config)
 (helm-mode 1)
 (define-key global-map [remap find-file] 'helm-find-files)
 (define-key global-map [remap occur] 'helm-occur)
@@ -240,20 +248,47 @@
 (helm-projectile-on)
 
 ;---------------
-; Haskell
+; Flymake
 ;----------------
-(require 'haskell-interactive-mode)
-(require 'haskell-process)
-(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
-(add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
+;; https://www.gnu.org/software/emacs/manual/html_node/flymake/index.html#Top
+(require 'flymake)
+(define-key flymake-mode-map (kbd "M-n") 'flymake-goto-next-error)
+(define-key flymake-mode-map (kbd "M-p") 'flymake-goto-prev-error)
 
-(custom-set-variables
- '(haskell-process-suggest-remove-import-lines t)
- '(haskell-process-auto-import-loaded-modules t)
- '(haskell-process-log t)
- '(haskell-stylish-on-save t)
- '(haskell-tags-on-save t))
+;---------------
+; Rust
+;----------------
+;;;; Docs
+;; https://github.com/brotzeit/rustic
+;; https://github.com/joaotavora/eglot
 
+(require 'rust-mode)
+
+;; The Rust style guide recommends spaces rather than tabs for indentation
+(add-hook 'rust-mode-hook
+          (lambda () (setq indent-tabs-mode nil)))
+
+(define-key rust-mode-map (kbd "C-c C-c") 'rust-run)
+
+;; M-? - find-references
+;; imenu
+(use-package rustic
+  :ensure
+  :bind (:map rustic-mode-map              
+              ;;("C-c C-c l" . flycheck-list-errors)
+              ("C-c C-c r" . eglot-rename)
+              ;;("C-c C-t" . rustic-cargo-current-test)
+              )
+  :config
+  ;; use eglot instead of lsp-mode (which is default)
+  (setq rustic-lsp-client 'eglot)
+  
+  ;; comment to disable rustfmt on save
+  (setq rustic-format-on-save t)
+
+  ;; don't use inlay-hints
+  (setq eglot-inlay-hints-mode nil)
+  )
 
 ;---------------
 ; auto-complete
@@ -261,11 +296,23 @@
 (global-company-mode)
 
 ;; turn on company-flx for fuzzy search
-(with-eval-after-load 'company
-  (company-flx-mode +1))
+;; (with-eval-after-load 'company
+;;   (company-flx-mode +1))
 
-(global-set-key (kbd "TAB") #'company-indent-or-complete-common)
-(global-set-key [M-tab] 'company-complete)
+;; (global-set-key (kbd "TAB") #'company-indent-or-complete-common)
+;; (global-set-key [M-tab] 'company-complete)
+
+(use-package company
+  :ensure
+  :custom
+  (company-idle-delay 0.5) ;; how long to wait until popup
+  ;; (company-begin-commands nil) ;; uncomment to disable popup
+  :bind
+  (:map company-active-map
+	      ("C-n". company-select-next)
+	      ("C-p". company-select-previous)
+	      ("M-<". company-select-first)
+	      ("M->". company-select-last)))
 
 ;;--------------
 ;; Visual
@@ -330,6 +377,12 @@
 ;; if two files with same name is open show dir instead of <n>
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
+
+;------------
+; Yaml
+;------------
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 
 ;------------
 ; Misc stuff

@@ -284,10 +284,10 @@
   (setq rustic-lsp-client 'eglot)
   
   ;; comment to disable rustfmt on save
-  (setq rustic-format-on-save t)
+  ;;(setq rustic-format-on-save t)
 
   ;; don't use inlay-hints
-  (setq eglot-inlay-hints-mode nil)
+  (setq eglot-ignored-server-capabilities '(:inlayHintProvider))
   )
 
 ;---------------

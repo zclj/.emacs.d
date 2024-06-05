@@ -8,6 +8,8 @@
 
 (package-initialize)
 
+(setopt package-install-upgrade-built-in t)
+
 (defvar my-packages
   '(
     ;; Clojure
@@ -83,9 +85,6 @@
     string-inflection
 
     use-package
-
-    ;; LSP
-    eglot
     
     ;; Theme
     solarized-theme
@@ -122,6 +121,12 @@
 
 ;; Are we on a mac?
 (setq is-mac (equal system-type 'darwin))
+
+;;----------------------------------------
+;; Odin
+;;----------------------------------------
+(add-to-list 'load-path "~/.emacs.d/odin-mode")
+(require 'odin-mode)
 
 ;;----------------------------------------
 ;; PlantUML
@@ -288,6 +293,12 @@
 
   ;; don't use inlay-hints
   (setq eglot-ignored-server-capabilities '(:inlayHintProvider))
+
+  ;; eglot speed?
+  (setq eglot-sync-connect 0)
+  (setq eglot-events-buffer-size 0)
+  (fset #'jsonrpc--log-event #'ignore)
+  (add-hook 'focus-out-hook 'garbage-collect)
   )
 
 ;---------------

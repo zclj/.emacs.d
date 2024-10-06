@@ -128,6 +128,12 @@
 (add-to-list 'load-path "~/.emacs.d/odin-mode")
 (require 'odin-mode)
 
+(use-package eglot
+  :ensure t
+  :config (add-to-list 'eglot-server-programs '(odin-mode . ("ols")))
+  :hook ((odin-mode . eglot-ensure))
+  )
+
 ;;----------------------------------------
 ;; PlantUML
 ;;----------------------------------------

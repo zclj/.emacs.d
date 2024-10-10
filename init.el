@@ -1,3 +1,13 @@
+;; ----------------------------------------
+;; Performance
+;; ----------------------------------------
+;; By increasing the garbage collection threshold, we reduce GC pauses
+;; during heavy operations, leading to smoother performance.
+(setq gc-cons-threshold #x40000000)
+
+;; Set the maximum output size for reading process output, allowing for larger data transfers.
+(setq read-process-output-max (* 1024 1024 4))
+
 ;-----------
 ; Packages
 ;-----------
@@ -72,8 +82,6 @@
     move-text
     buffer-move
     expand-region
-    smart-mode-line
-    smart-mode-line-powerline-theme
     exec-path-from-shell
     adoc-mode
     crux
@@ -97,6 +105,12 @@
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
+
+;; Define a global var to control if Nerd Fonts are used or not
+(defcustom ek-use-nerd-fonts t
+  "Configuration for using Nerd Fonts Symbols."
+  :type 'boolean
+  :group 'appearance)
 
 ;; Load key bindings.
 (load (concat user-emacs-directory "keybinds.el"))
@@ -336,9 +350,21 @@
 ;;--------------
 (if is-mac
     (add-to-list 'default-frame-alist
-		 '(font . "Menlo 16"))
+		 '(font . "CaskaydiaMono Nerd Font 16"))
+    ;; (add-to-list 'default-frame-alist
+    ;;     	 '(font . "Menlo 16"))
     (add-to-list 'default-frame-alist
 		 '(font . "DejaVu Sans Mono-14")))
+
+;; Use nerd icons if defined
+(use-package nerd-icons
+  ;; Load the package only if the user has configured to use nerd fonts.
+  :if ek-use-nerd-fonts
+  ;; Ensure the package is installed.
+  :ensure t
+  ;; Load the package only when needed to improve startup time.
+  :defer t)
+
 
 (blink-cursor-mode -1)
 
@@ -378,10 +404,30 @@
 
 (add-hook `text-mode-hook 'turn-on-visual-line-mode)
 
-;; smart mode line
-(sml/setup)
-(sml/apply-theme 'powerline)
-
+;; ----------------------------------------
+;; Doom mode line
+;; ----------------------------------------
+(use-package doom-modeline
+  :ensure t
+  :defer t
+  :custom
+  ;; Set the buffer file name style to just the buffer name (without path).
+  (doom-modeline-buffer-file-name-style 'buffer-name)
+  ;; Enable project detection for displaying the project name.
+  (doom-modeline-project-detection 'project)
+  ;; Show the buffer name in the mode line.
+  (doom-modeline-buffer-name t)
+  ;; Limit the version control system (VCS) branch name length to 25 characters.
+  (doom-modeline-vcs-max-length 25)
+  :config
+  ;; Check if nerd fonts are being used.
+  (if ek-use-nerd-fonts
+      ;; Enable icons in the mode line if nerd fonts are used.
+      (setq doom-modeline-icon t)
+    ;; Disable icons if nerd fonts are not being used.
+    (setq doom-modeline-icon nil))
+  :hook
+  (after-init . doom-modeline-mode))
 
 ;; hideshow blocks
 (load-library "hideshow")
@@ -491,9 +537,31 @@
 (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
 (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
 
+;; ----------------------------------------
 ;; undo-tree
-(require 'undo-tree)
-(global-undo-tree-mode)
+;; ----------------------------------------
+;; (require 'undo-tree)
+;; (global-undo-tree-mode)
+(use-package undo-tree
+  :defer t
+  :ensure t
+  :hook
+  (after-init . global-undo-tree-mode)
+  :init
+  (setq undo-tree-visualizer-timestamps t
+        undo-tree-visualizer-diff t
+        ;; Increase undo limits to avoid losing history due to Emacs' garbage collection.
+        ;; These values can be adjusted based on your needs.
+        ;; 10X bump of the undo limits to avoid issues with premature
+        ;; Emacs GC which truncates the undo history very aggressively.
+        undo-limit 800000                     ;; Limit for undo entries.
+        undo-strong-limit 12000000            ;; Strong limit for undo entries.
+        undo-outer-limit 120000000)           ;; Outer limit for undo entries.
+  :config
+  ;; Set the directory where `undo-tree' will save its history files.
+  ;; This keeps undo history across sessions, stored in a cache directory.
+  (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/.cache/undo"))))
+
 
 
 ;; anzu-mode enhances isearch & query-replace by showing total matches and current match position
